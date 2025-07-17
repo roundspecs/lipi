@@ -31,6 +31,9 @@ const (
 	L_BRACE   = "{"
 	R_BRACE   = "}"
 
+	EQ				= "=="
+	NEQ       = "!="
+
 	FUNCTION  = "FUNCTION"
 	LET       = "LET"
 	IF        = "IF"

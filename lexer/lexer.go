@@ -22,7 +22,12 @@ func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 	switch l.ch {
 	case '=':
-		tok = token.Token{Type: token.ASSIGN, Literal: string(l.ch)}
+		if l.peakChar() == '=' {
+			l.readChar() // Consume the '=' character
+			tok = token.Token{Type: token.EQ, Literal: "=="}
+		} else {
+			tok = token.Token{Type: token.ASSIGN, Literal: string(l.ch)}
+		}
 	case '+':
 		tok = token.Token{Type: token.PLUS, Literal: string(l.ch)}
 	case '-':
@@ -32,7 +37,12 @@ func (l *Lexer) NextToken() token.Token {
 	case '/':
 		tok = token.Token{Type: token.SLASH, Literal: string(l.ch)}
 	case '!':
-		tok = token.Token{Type: token.BANG, Literal: string(l.ch)}
+		if l.peakChar() == '=' {
+			l.readChar() // Consume the '=' character
+			tok = token.Token{Type: token.NEQ, Literal: "!="}
+		} else {
+			tok = token.Token{Type: token.BANG, Literal: string(l.ch)}
+		}
 	case '<':
 		tok = token.Token{Type: token.LT, Literal: string(l.ch)}
 	case '>':
@@ -106,4 +116,14 @@ func (l *Lexer) eatSpaces() {
 	for l.ch == ' ' || l.ch == '\n' || l.ch == '\t' {
 		l.readChar()
 	}
+}
+
+// peakChar returns the next character without advancing the position.
+// It returns 0 if the end of input is reached.
+// This is useful for lookahead operations.
+func (l *Lexer) peakChar() rune {
+	if l.position+1 >= len(l.input) {
+		return 0 // End of input
+	}
+	return l.input[l.position+1]
 }

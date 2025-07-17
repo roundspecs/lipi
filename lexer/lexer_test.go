@@ -24,6 +24,14 @@ func TestNextToken(t *testing.T) {
 };
 
 ধর পার্থক্য = সংখ্যা২ - সংখ্যা১;
+
+ধর শূন্য_এর_সমান = ফাঙ্কশন(সংখ্যা) {
+	যদি সংখ্যা == ০ {
+		ফেরাও সত্য;
+	} নাহলে {
+		ফেরাও মিথ্যা;
+	}
+};
 `
 
 	lexer := NewLexer(input)
@@ -101,6 +109,32 @@ func TestNextToken(t *testing.T) {
 		{Type: token.IDENT, Literal: "সংখ্যা২"},
 		{Type: token.MINUS, Literal: "-"},
 		{Type: token.IDENT, Literal: "সংখ্যা১"},
+		{Type: token.SEMICOLON, Literal: ";"},
+
+		{Type: token.LET, Literal: "ধর"},
+		{Type: token.IDENT, Literal: "শূন্য_এর_সমান"},
+		{Type: token.ASSIGN, Literal: "="},
+		{Type: token.FUNCTION, Literal: "ফাঙ্কশন"},
+		{Type: token.L_PAREN, Literal: "("},
+		{Type: token.IDENT, Literal: "সংখ্যা"},
+		{Type: token.R_PAREN, Literal: ")"},
+		{Type: token.L_BRACE, Literal: "{"},
+		{Type: token.IF, Literal: "যদি"},
+		{Type: token.IDENT, Literal: "সংখ্যা"},
+		{Type: token.EQ, Literal: "=="},
+		{Type: token.INT, Literal: "০"},
+		{Type: token.L_BRACE, Literal: "{"},
+		{Type: token.RETURN, Literal: "ফেরাও"},
+		{Type: token.TRUE, Literal: "সত্য"},
+		{Type: token.SEMICOLON, Literal: ";"},
+		{Type: token.R_BRACE, Literal: "}"},
+		{Type: token.ELSE, Literal: "নাহলে"},
+		{Type: token.L_BRACE, Literal: "{"},
+		{Type: token.RETURN, Literal: "ফেরাও"},
+		{Type: token.FALSE, Literal: "মিথ্যা"},
+		{Type: token.SEMICOLON, Literal: ";"},
+		{Type: token.R_BRACE, Literal: "}"},
+		{Type: token.R_BRACE, Literal: "}"},
 		{Type: token.SEMICOLON, Literal: ";"},
 
 		{Type: token.EOF, Literal: ""},
