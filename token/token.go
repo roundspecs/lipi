@@ -6,31 +6,48 @@ type Token struct {
 }
 
 const (
-	ILLEGAL = "ILLEGAL"
-	EOF     = "EOF"
+	ILLEGAL   = "ILLEGAL"
+	EOF       = "EOF"
 
-	IDENT   = "IDENT" // main, foo, bar, etc.
-	INT     = "INT"   // 1234567890
+	IDENT     = "IDENT" // main, foo, bar, etc.
+	INT       = "INT"   // 1234567890
 
-	ASSIGN  = "="
-	PLUS    = "+"
+	ASSIGN    = "="
+	PLUS      = "+"
+	MINUS     = "-"
+	ASTERISK  = "*"
+	SLASH     = "/"
+	BANG     	= "!"
 
-	COMMA   = ","
+	LT        = "<"
+	GT        = ">"
+
+	COMMA     = ","
 	SEMICOLON = ";"
 
-	L_PAREN = "("
-	R_PAREN = ")"
+	L_PAREN   = "("
+	R_PAREN   = ")"
 
-	L_BRACE = "{"
-	R_BRACE = "}"
+	L_BRACE   = "{"
+	R_BRACE   = "}"
 
-	FUNCTION = "FUNCTION"
-	LET      = "LET"
+	FUNCTION  = "FUNCTION"
+	LET       = "LET"
+	IF        = "IF"
+	ELSE      = "ELSE"
+	TRUE      = "TRUE"
+	FALSE     = "FALSE"
+	RETURN    = "RETURN"
 )
 
 var keywords = map[string]string{
 	"ধর": LET,
 	"ফাঙ্কশন": FUNCTION,
+	"যদি": IF,
+	"নাহলে": ELSE,
+	"সত্য": TRUE,
+	"মিথ্যা": FALSE,
+	"ফেরাও": RETURN,
 }
 
 // LookupIdent checks if the identifier is a keyword and returns its type.
