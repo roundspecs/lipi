@@ -27,3 +27,17 @@ const (
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
 )
+
+var keywords = map[string]string{
+	"ধর": LET,
+	"ফাঙ্কশন": FUNCTION,
+}
+
+// LookupIdent checks if the identifier is a keyword and returns its type.
+// If not, it returns IDENT.
+func LookupIdent(ident string) string {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
+}
