@@ -12,27 +12,27 @@ const (
 	IDENT     = "IDENT" // main, foo, bar, etc.
 	INT       = "INT"   // 1234567890
 
-	ASSIGN    = "="
-	PLUS      = "+"
-	MINUS     = "-"
-	ASTERISK  = "*"
-	SLASH     = "/"
-	BANG     	= "!"
+	ASSIGN    = "ASSIGN"
+	PLUS      = "PLUS"
+	MINUS     = "MINUS"
+	ASTERISK  = "ASTERISK"
+	SLASH     = "SLASH"
+	BANG     	= "BANG"
 
-	LT        = "<"
-	GT        = ">"
+	LT        = "LT"
+	GT        = "GT"
 
-	COMMA     = ","
-	SEMICOLON = ";"
+	COMMA     = "COMMA"
+	SEMICOLON = "SEMICOLON"
 
-	L_PAREN   = "("
-	R_PAREN   = ")"
+	L_PAREN   = "L_PAREN"
+	R_PAREN   = "R_PAREN"
 
-	L_BRACE   = "{"
-	R_BRACE   = "}"
+	L_BRACE   = "L_BRACE"
+	R_BRACE   = "R_BRACE"
 
-	EQ				= "=="
-	NEQ       = "!="
+	EQ				= "EQ"
+	NEQ       = "NEQ"
 
 	FUNCTION  = "FUNCTION"
 	LET       = "LET"
